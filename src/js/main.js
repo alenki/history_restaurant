@@ -1,4 +1,9 @@
- AOS.init({
+import AOS from 'aos';
+// import 'jquery.stellar/jquery.stellar.js';
+import 'bootstrap';
+import '@popperjs/core/dist/umd/popper.min.js';
+
+AOS.init({
  	duration: 800,
  	easing: 'slide'
  });
@@ -162,7 +167,7 @@
 		});
 	};
 	scrollWindow();
-
+	
 	
 	var counter = function() {
 		
@@ -188,7 +193,7 @@
 
 	}
 	counter();
-
+	
 	var contentWayPoint = function() {
 		var i = 0;
 		$('.ftco-animate').waypoint( function( direction ) {
@@ -250,7 +255,6 @@
 	};
 	OnePageNav();
 
-
 	// magnific popup
 	$('.image-popup').magnificPopup({
     type: 'image',
@@ -299,9 +303,6 @@
     dropdown: true,
     scrollbar: true
 	});
-
-
-
 
 })(jQuery);
 
