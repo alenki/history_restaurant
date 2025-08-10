@@ -174,7 +174,6 @@
 				$('.number').each(function(){
 					var $this = $(this),
 						num = $this.data('number');
-						console.log(num);
 					$this.animateNumber(
 					  {
 					    number: num,
@@ -289,7 +288,17 @@
 	  'autoclose': true
 	});
 
-	$('.appointment_time').timepicker();
+	$('.appointment_time').timepicker({
+    timeFormat: 'HH:mm',
+    interval: 30,
+    minTime: '9',
+    maxTime: '23',
+    defaultTime: '11',
+    startTime: '10:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+	});
 
 
 

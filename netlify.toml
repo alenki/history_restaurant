@@ -1,0 +1,14 @@
+[[redirects]]
+  from = "/certificates"
+  to = "/certificates/index.html"
+  status = 200
+
+[[redirects]]
+  from = "https://okaraf.netlify.app"
+  to = "https://okaraf.ru"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
