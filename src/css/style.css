@@ -7956,21 +7956,21 @@ h1, h2, h3, h4, h5,
       content: '';
       width: 100%;
       height: 1px;
-      border-bottom: 1px dashed #674c27;
+      /* border-bottom: 1px dashed #674c27; */
       z-index: -1; }
     .pricing-entry .text h3 {
       width: calc(100% - 80px);
       font-size: 18px; }
       .pricing-entry .text h3 span {
-        background: #151111;
-        background: url(../../images/bg_4.jpg) no-repeat fixed;
+        /* background: #151111;
+        background: url(../../images/bg_4.jpg) no-repeat fixed; */
         padding-right: 20px; }
     .pricing-entry .text .price {
       width: 80px;
       color: #eaa161;
       text-align: right;
-      background: #151111;
-      background: url(../../images/bg_4.jpg) no-repeat fixed;
+      /* background: #151111;
+      background: url(../../images/bg_4.jpg) no-repeat fixed; */
       font-size: 16px; }
 
 .menu-entry {
