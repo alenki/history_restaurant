@@ -9,5 +9,7 @@
 @media only screen and (max-width: 600px) {
     .owl-item.active .slider-item {
         background-image: url(../../images/10.png) !important;
+        pointer-events: none;
+        
     }
 }
