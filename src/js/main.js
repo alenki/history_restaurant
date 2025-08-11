@@ -1,6 +1,5 @@
 import AOS from 'aos';
 // import 'jquery.stellar/jquery.stellar.js';
-import 'bootstrap';
 import '@popperjs/core/dist/umd/popper.min.js';
 
 AOS.init({
