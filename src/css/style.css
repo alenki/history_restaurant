@@ -8804,6 +8804,11 @@ textarea.form-control {
     bottom: 0;
     background: #000;
     opacity: .5; }
+@media only screen and (max-width: 768px) {
+  #section-counter{
+    background-image: url(../../images/9.png) !important;
+  }
+}
 
 .ftco-counter {
   padding: 7em 0; }
