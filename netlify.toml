@@ -1,11 +1,16 @@
 [[redirects]]
-  from = "/certificates"
-  to = "/certificates/index.html"
+  from = "/menu"
+  to = "/menu/index.html"
   status = 200
 
 [[redirects]]
-  from = "https://okaraf.netlify.app"
-  to = "https://okaraf.ru"
+  from = "/contact"
+  to = "/contact/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about/index.html"
   status = 200
 
 [[redirects]]
