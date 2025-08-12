@@ -253,3 +253,16 @@ AOS.init({
 
 })(jQuery);
 
+// close navbar on click
+  document.addEventListener('click', function (event) {
+    const navbar = document.querySelector('.navbar-collapse');
+    const toggler = document.querySelector('.navbar-toggler');
+
+    // If navbar is open and the click is outside
+    if (navbar.classList.contains('show') &&
+        !navbar.contains(event.target) &&
+        !toggler.contains(event.target)) {
+
+      new bootstrap.Collapse(navbar).toggle();
+    }
+  });
