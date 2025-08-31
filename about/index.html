@@ -30,7 +30,19 @@
     <link rel="stylesheet" href="../src/css/style.css">
 	<link rel="stylesheet" href="../src/css/about.css">
   </head>
-  <body>
+  <body onload="loading()" style="margin: 0; height: 100%; overflow: hidden">
+
+		<!-- Loading screen / Экран загрузки -->
+		<div id="ftco-loader" class="loadingScreen show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#dee2e6"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#ad9186"/></svg></div>
+		<script>
+		function loading() {
+			document.body.style.margin = 0;
+			document.body.style.height = 0;
+			document.body.style.overflow = "auto";
+			document.querySelector(".loadingScreen").style.display = 'none';
+		}
+		</script>
+
   	<!-- NAV -->
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 			<div class="container">
@@ -326,10 +338,6 @@
 		</footer>
 		<!-- End of FOOTER -->
     
-  
-
-  <!-- loader -->
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 	<script type="module" src="../src/js/bootstrap-datepicker.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js" integrity="sha512-VqTaIU3VlSHylzoMs3hWCBTMZ9l5fvYayp4yzRb5qV9Ne4Z+n21uFoG672gWMcJiedQYZV2KmXF3VkTTsRGRbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
