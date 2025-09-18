@@ -36,16 +36,6 @@ AOS.init({
 	};
 	fullHeight();
 
-	// loader
-	var loader = function() {
-		setTimeout(function() { 
-			if($('#ftco-loader').length > 0) {
-				$('#ftco-loader').removeClass('show');
-			}
-		}, 1);
-	};
-	loader();
-
 	// Scrollax
    $.Scrollax();
 
@@ -253,3 +243,41 @@ AOS.init({
 
 })(jQuery);
 
+// close navbar on click
+  document.addEventListener('click', function (event) {
+    const navbar = document.querySelector('.navbar-collapse');
+    const toggler = document.querySelector('.navbar-toggler');
+
+    // If navbar is open and the click is outside
+    if (navbar.classList.contains('show') &&
+        !navbar.contains(event.target) &&
+        !toggler.contains(event.target)) {
+
+      new bootstrap.Collapse(navbar).toggle();
+    }
+  });
+
+// Lenis
+// Imports
+// import { gsap } from 'gsap';
+// import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
+gsap.registerPlugin(ScrollTrigger) 
+
+// smooth scroll
+// Initialize a new Lenis instance for smooth scrolling
+const lenis = new Lenis();
+
+// Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+lenis.on('scroll', ScrollTrigger.update);
+
+// Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+// This ensures Lenis's smooth scroll animation updates on each GSAP tick
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+});
+
+// Disable lag smoothing in GSAP to prevent any delay in scroll animations
+gsap.ticker.lagSmoothing(0);
+// end of smooth scroll

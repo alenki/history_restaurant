@@ -3,12 +3,12 @@
     display: none;
   }
   .ftco-about-testimony{
-    background-image: url(../../images/6.png) !important;
+    background-image: url(../../images/6.webp) !important;
   }
 }
 @media only screen and (max-width: 600px) {
     .owl-item.active .slider-item {
-        background-image: url(../../images/10.png) !important;
+        background-image: url(../../images/10.webp) !important;
         pointer-events: none;
         
     }
