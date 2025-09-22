@@ -7346,10 +7346,10 @@ h1, h2, h3, h4, h5,
   right: 0;
   z-index: 3;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-  @media (max-width: 991.98px) {
+  /* @media (max-width: 991.98px) {
     .ftco-navbar-light {
       position: relative;
-      top: 0; } }
+      top: 0; } } */
   .ftco-navbar-light .navbar-brand {
     color: #fff;
     font-family: "Josefin Sans", Arial, sans-serif; }
@@ -7604,7 +7604,13 @@ h1, h2, h3, h4, h5,
   .owl-carousel.home-slider {
     position: relative;
     height: 750px;
-    z-index: 0; }
+    z-index: 0; 
+  }
+  @media (max-width: 991.98px){
+    .owl-carousel.home-slider {
+      margin-top: 67px;
+    }
+  }
     .owl-carousel.home-slider .slider-item {
       background-size: cover;
       background-repeat: no-repeat;
