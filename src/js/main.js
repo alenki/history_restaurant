@@ -273,7 +273,7 @@ gsap.ticker.lagSmoothing(0);
 	const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
   
 	// Keep disabled on touch to avoid mobile jank; change this if you want it on phones/tablets
-	if (prefersReduce || isTouch) return;
+	// if (prefersReduce || isTouch) return;
   
 	// Usage in HTML:
 	// <section class="hero" data-parallax-bg data-parallax-bg-x="50%" data-parallax-speed="0.25"></section>
