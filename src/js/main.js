@@ -23,7 +23,7 @@ AOS.init({
   });
 
   // Scrollax
-  $.Scrollax();
+//   $.Scrollax();
 
 
 	var fullHeight = function() {
@@ -37,7 +37,7 @@ AOS.init({
 	fullHeight();
 
 	// Scrollax
-   $.Scrollax();
+//    $.Scrollax();
 
 	
 
