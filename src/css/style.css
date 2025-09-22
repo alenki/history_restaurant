@@ -1,3 +1,6 @@
+/* ScrollTrigger */
+[data-parallax] { will-change: transform; }
+
 
 /* --------------- Fonts ---------------- */
 @font-face {
@@ -7621,6 +7624,11 @@ h1, h2, h3, h4, h5,
       margin-top: 51.3px;
     }
   }
+  @media (max-width: 350px){
+    .owl-carousel.home-slider {
+      margin-top: 50.6167px;
+    }
+  }
     .owl-carousel.home-slider .slider-item {
       background-size: cover;
       background-repeat: no-repeat;
@@ -8418,9 +8426,9 @@ h1, h2, h3, h4, h5,
   padding-bottom: 0;
   position: relative;
   z-index: 0; }
-  @media (max-width: 1199.98px) {
+  /* @media (max-width: 1199.98px) {
     #ftco-testimony.img {
-      background-position: center center !important; } }
+      background-position: center center !important; } } */
   #ftco-testimony > .overlay {
     position: absolute;
     top: 0;
@@ -8840,9 +8848,9 @@ textarea.form-control {
 
 .ftco-counter {
   padding: 7em 0; }
-  @media (max-width: 1199.98px) {
+  /* @media (max-width: 1199.98px) {
     .ftco-counter {
-      background-position: center center !important; } }
+      background-position: center center !important; } } */
   .ftco-counter .icon {
     width: 80px;
     height: 80px;

@@ -11,20 +11,6 @@ AOS.init({
 
 	"use strict";
 
-// 	$(window).stellar({
-//     responsive: true,
-//     parallaxBackgrounds: true,
-//     parallaxElements: true,
-//     horizontalScrolling: false,
-//     hideDistantElements: false,
-//     scrollProperty: 'scroll',
-//     horizontalOffset: 0,
-// 	  verticalOffset: 0
-//   });
-
-  // Scrollax
-//   $.Scrollax();
-
 
 	var fullHeight = function() {
 
@@ -35,10 +21,6 @@ AOS.init({
 
 	};
 	fullHeight();
-
-	// Scrollax
-//    $.Scrollax();
-
 	
 
 	$('nav .dropdown').hover(function(){
@@ -257,27 +239,78 @@ AOS.init({
     }
   });
 
-// // Lenis
-// // Imports
-// // import { gsap } from 'gsap';
-// // import { ScrollTrigger } from "gsap/ScrollTrigger.js";
-// import Lenis from 'lenis'
-// import 'lenis/dist/lenis.css'
-// gsap.registerPlugin(ScrollTrigger) 
+// Lenis
+// Imports
+// import { gsap } from 'gsap';
+// import { ScrollTrigger } from "gsap/ScrollTrigger.js";
+import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
+gsap.registerPlugin(ScrollTrigger) 
 
-// // smooth scroll
-// // Initialize a new Lenis instance for smooth scrolling
-// const lenis = new Lenis();
+// smooth scroll
+// Initialize a new Lenis instance for smooth scrolling
+const lenis = new Lenis();
 
-// // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
-// lenis.on('scroll', ScrollTrigger.update);
+// Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+lenis.on('scroll', ScrollTrigger.update);
 
-// // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
-// // This ensures Lenis's smooth scroll animation updates on each GSAP tick
-// gsap.ticker.add((time) => {
-//   lenis.raf(time * 1000); // Convert time from seconds to milliseconds
-// });
+// Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+// This ensures Lenis's smooth scroll animation updates on each GSAP tick
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+});
 
-// // Disable lag smoothing in GSAP to prevent any delay in scroll animations
-// gsap.ticker.lagSmoothing(0);
-// // end of smooth scroll
+// Disable lag smoothing in GSAP to prevent any delay in scroll animations
+gsap.ticker.lagSmoothing(0);
+// end of smooth scroll
+
+
+
+
+// Background-only parallax within the element (the block stays put)
+(function initGsapBackgroundParallax(){
+	const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	const isTouch = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  
+	// Keep disabled on touch to avoid mobile jank; change this if you want it on phones/tablets
+	if (prefersReduce || isTouch) return;
+  
+	// Usage in HTML:
+	// <section class="hero" data-parallax-bg data-parallax-bg-x="50%" data-parallax-speed="0.25"></section>
+	// - data-parallax-bg-x is optional, defaults to '50%' (center)
+	// - data-parallax-speed is optional, defaults to 0.2 (range ~0.1–0.6)
+	// NOTE: Avoid `background-attachment: fixed` on iOS; we'll animate backgroundPosition instead.
+  
+	const sections = document.querySelectorAll('[data-parallax-bg]');
+	sections.forEach(sec => {
+	  // Ensure normal attachment so we fully control it with GSAP
+	  sec.style.backgroundAttachment = 'scroll';
+	  // Optional performance hint
+	  sec.style.willChange = 'background-position';
+  
+	  const speed = parseFloat(sec.getAttribute('data-parallax-speed')) || 0.2;
+	  const xPos = sec.getAttribute('data-parallax-bg-x') || '50%';
+	  // Travel in px based on speed; tweak the 150 factor to taste
+	  const travel = Math.round(150 * speed);
+  
+	  gsap.fromTo(
+		sec,
+		{ backgroundPosition: `${xPos} ${-travel}px` },
+		{
+		  backgroundPosition: `${xPos} ${travel}px`,
+		  ease: 'none',
+		  scrollTrigger: {
+			trigger: sec,
+			start: 'top bottom',
+			end: 'bottom top',
+			scrub: true
+		  }
+		}
+	  );
+	});
+  
+	// Refresh after assets load for correct bounds
+	window.addEventListener('load', () => {
+	  if (window.ScrollTrigger) ScrollTrigger.refresh();
+	});
+  })();
