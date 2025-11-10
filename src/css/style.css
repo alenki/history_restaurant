@@ -7632,7 +7632,7 @@ h1, h2, h3, h4, h5,
     .owl-carousel.home-slider .slider-item {
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: center center;
+      background-position: center center !important;
       height: 750px;
       position: relative;
       z-index: 0; }
