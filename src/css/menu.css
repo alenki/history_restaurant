@@ -9,6 +9,7 @@
 .mobile_menu{
   display: none;
   padding: 3em 0;
+  padding-top: 87px;
 }
 @media (max-width: 767px) {
   .pc_menu{
