@@ -287,17 +287,20 @@ gsap.ticker.lagSmoothing(0);
 	  sec.style.backgroundAttachment = 'scroll';
 	  // Optional performance hint
 	  sec.style.willChange = 'background-position';
-  
+
 	  const speed = parseFloat(sec.getAttribute('data-parallax-speed')) || 0.2;
 	  const xPos = sec.getAttribute('data-parallax-bg-x') || '50%';
-	  // Travel in px based on speed; tweak the 150 factor to taste
-	  const travel = Math.round(150 * speed);
-  
+	  // Use percentage-based positions so the image never goes out of bounds
+	  // with background-size:cover. 50% = centered, 0%/100% = edges.
+	  const range = Math.min(speed * 7, 50);
+	  const yStart = 50 - range;
+	  const yEnd = 50 + range;
+
 	  gsap.fromTo(
 		sec,
-		{ backgroundPosition: `${xPos} ${-travel}px` },
+		{ backgroundPosition: `${xPos} ${yStart}%` },
 		{
-		  backgroundPosition: `${xPos} ${travel}px`,
+		  backgroundPosition: `${xPos} ${yEnd}%`,
 		  ease: 'none',
 		  scrollTrigger: {
 			trigger: sec,
